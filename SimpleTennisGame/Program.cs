@@ -18,7 +18,7 @@ InterfaceViewModel gameStarting = new InterfaceViewModel(score, new ScoreEntity
 {
 	Player1Score = 0,
 	Player2Score = 0,
-	ScoreNames = new string[] { "Love", "15", "30", "40"}
+	ScoreNames = new string[] { "Love", "15", "30", "40","Deuce", "Advantage"}
 });
 
 gameStarting.MenuService();

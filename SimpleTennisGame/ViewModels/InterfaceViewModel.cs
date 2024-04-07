@@ -23,7 +23,7 @@ public class InterfaceViewModel(ScoreModel scoreModel, ScoreEntity entity)
 		
 
 
-		while (_entity.Player1Score < 3 && _entity.Player2Score < 3)
+		while (_entity.Player1Score <4 && _entity.Player2Score <4)
 		{
 			Console.WriteLine("Who Scored");
 			var result = Console.ReadLine(); 
@@ -39,14 +39,36 @@ public class InterfaceViewModel(ScoreModel scoreModel, ScoreEntity entity)
 				var Player1ScoreName = _scoreEntity.ScoreNames[scorePlayer1];
 				var Player2ScoreName = _scoreEntity.ScoreNames[scorePlayer2];
 
-				if (Scores.Player1Score == Scores.Player2Score)
+				
+				if (Scores.Player1Score <= 3 && Scores.Player2Score <= 3)
+					Console.WriteLine($"{Player1ScoreName} - {Player2ScoreName}");
+
+				if (Scores.Player1Score == 3 && Scores.Player2Score== 3)
 				{
 					Console.WriteLine("Deuce");
+
+					
 				}
-				
-				Console.WriteLine($"{Player1ScoreName} - {Player2ScoreName}");
+				if (Scores.Player1Score == 4 || Scores.Player2Score == 4)
+				{
+					Console.WriteLine("Advantage");
+
+					if (_entity.Player1Score > _entity.Player2Score)
+					{
+						Console.WriteLine($"Winner is: {_playerEntity.Player1Name}");
+					}
+					if (_entity.Player2Score > _entity.Player1Score)
+					{
+						Console.WriteLine($"Winner is: {_playerEntity.Player2Name}");
+					}
+					Console.WriteLine("##Game over##");
+
+				}
+
 
 				
+
+
 			}
 			else
 			{
@@ -57,12 +79,7 @@ public class InterfaceViewModel(ScoreModel scoreModel, ScoreEntity entity)
 
 		}
 
-		if (_entity.Player1Score < 3 || _entity.Player2Score < 3)
-		{
-
-			Console.WriteLine("Game over");
-
-		}
+		
 
 
 
